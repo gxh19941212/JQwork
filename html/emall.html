@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>设置邮箱</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/signup.css"/>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+		<style type="text/css">
+			.main_con{
+				background: 0;
+				height: 200px;
+			}
+			.main_con form {
+				text-align: center;
+			}
+			.main_con form input{
+				vertical-align: bottom; 
+				
+			}
+			.main_con form #emall{
+				height: 40px;
+				width: 400px;
+				box-sizing: border-box;
+				padding: 8px 6px;
+			}
+			.main_con form #embtn{
+				height: 40px;
+				width: 100px;
+				border: 0;
+				cursor: pointer;
+				color: white;
+				background: #F8296D;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				if($.cookie("user")){
+					$("#embtn").click(function(){
+						var data = JSON.parse($.cookie('user')),
+						Emall =$("#emall").val();
+						if((/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/).test(Emall)){
+							$.post('http://localhost/g2/JQwork/php/emall.php',{
+							"tel":data.tel,
+							"emall":Emall
+							},function(data){
+								//data=JSON.parse(data);
+								$.cookie('user',data,{expires: 7, path: '/'});
+								location.href="../index.html";
+							})
+						}
+						
+					});
+					
+				}else{
+					location.href="../index.html";
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<!--header-->
+		<header>
+			<div>
+				<h1 id="logo">
+					<a href="../index.html"></a>
+				</h1>
+				<div class="header_r">
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+		</header>
+
+		
+		<!--main-->
+		<div class="main">
+			<div class="main_con">
+				<form action="" method="post">
+					<input type="text" name="emall" id="emall" value="" placeholder="..@xx.xx"/><input type="button" id="embtn" value="提交"/>
+				</form>
+			</div>
+		</div>
+		<!--清除浮动-->
+		<div class="clear"></div>
+	
+		<!--footer-->
+		<footer>
+			<div class="foot_main">
+				<p>
+				    Copyright © 2010-2015 北京创锐文化传媒有限公司 Jumei.com 保留一切权利。客服热线：400-123-8888 
+				    <br> 京公网安备 11010102001226 号 |
+					<a href="javascript:;">京ICP证111033号</a> | 食品流通许可证 SP1101051110165515（1-1） |
+					<a href="javascript:;">营业执照</a>
+				</p>
+				<p>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>

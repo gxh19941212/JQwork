@@ -87,8 +87,10 @@ $(function(){
 			"tel": $("#tel").val(),
 			"password":  $("#password").val()
 			}, function(data) {
-				if(data == 1) {
-					
+				if(data[0] == 1) {
+					//data = JSON.parse(data.substring(1));
+					$.cookie('user',data.substring(1),{expires: 7, path: '/'});
+					location.href = "emall.html"
 				}else if(data == 0){
 					
 				}
@@ -96,4 +98,5 @@ $(function(){
 		}
 		return false;
 	});
+	//console.log(data = JSON.parse($.cookie('user')));
 })

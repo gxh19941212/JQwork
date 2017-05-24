@@ -25,6 +25,7 @@ if($result ->num_rows == 0){
 		$sql = "insert into users (username,password,tel)values('$username',
 		'$password','$tel')";
 		$conn ->query($sql);
+		echo '{"username":"'.$username.'","password":"'.$password.'","tel":"'.$tel.'"}';
 	}
 	
 }else{

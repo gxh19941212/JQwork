@@ -2,8 +2,251 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>登录</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/signup.css"/>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+		<style type="text/css">
+			.main_con{
+				background-image: url(../imgs/loginPic.jpg);
+				margin: 50px auto;
+			}
+			.login{
+				top: -10px;
+			}
+			.login .xy{
+				margin-top: 20px;
+			}
+			#lgform .las{
+				height: auto;
+				margin-bottom: 0;
+			}
+			#lgform input{
+				padding-left: 38px;
+    			width: 252px;
+			}
+			#lgform #txt{
+				background: url(../imgs/sign.png) no-repeat 5px 0;
+			}
+			#lgform #password{
+				background: url(../imgs/sign.png) no-repeat 5px -50px;
+			}
+			#lgform #submit{
+				width: 252px;
+				box-sizing: content-box;
+			}
+			.alist,.icon-p{
+				margin-bottom: 15px;
+				overflow: hidden;
+			}
+			#lgform .icon-p{
+				display: none;
+			}
+			.alist span{
+				line-height: 30px;
+			    position: relative;
+			    left: -7px;
+			    cursor: pointer;
+			    float: left;
+			    margin-top: 5px;
+			}
+			#lgform .alist span i{
+				width: 18px;
+			    height: 17px;
+			    display: inline-block;
+			    position: absolute;
+			    left: 110%;
+			    background: url(../imgs/icon.jpg) no-repeat -274px -23px;
+			    transition: .3s ease-in;
+			}
+			#lgform .alist span .slider1 {
+			    background-position: -274px 0;
+			}
+			.alist a,.icon-p a{
+			    background-image: url(../imgs/icon_light.jpg);
+			    background-repeat: no-repeat;
+			    width: 43px;
+			    height: 43px;
+			    margin-right: 12px;
+			    float: left;
+			}
+			.alist .a2 {
+			    background-position: -57px 0;
+			}
+			.alist .a3 {
+			    background-position: -114px 0;
+			}
+			.alist .a4 {
+			    background-position: -169px 0;
+			}
+			.alist .a5 {
+			    background-position: -224px 0;
+			}
+			.icon-p .a6 {
+			    background-position: 0 -54px;
+			}
+			.icon-p .a7 {
+			    background-position: -57px -54px;
+			}
+			.icon-p .a8 {
+			    background-position: -114px -54px;
+			}
+			.icon-p .a9 {
+		    	background-position: -169px -54px;
+		    }
+			.alist a:hover{
+				background-image: url(../imgs/icon.jpg);
+			}
+			#lgform #auto{
+				height: auto;
+				overflow: hidden;
+				margin: 5px 0;
+			}
+			#auto>div{
+				float: left;
+			}
+			#auto .auto{
+				width: auto;
+			}
+			#auto .auto:focus{
+				border-color: none;
+				box-shadow: none;
+			}
+			#auto a{
+				float: right;
+				color: black;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				$(".alist i").click(function(){
+					$(this).stop(true).toggleClass("slider1");
+					$(".icon-p").stop(true).slideToggle();
+				})
+				$("#lgform").on("focus","input",function(){
+					$(this).parent().find(".focus_text").css("display","block");
+					$(this).parent().children("div:not(.focus_text)").css("display","none");
+				});
+				$("#lgform").on("blur","input",function(){
+					$(this).parent().find(".focus_text").css("display","none");
+					var Tid =$(this).attr('id');
+				});
+				$("#submit").click(function(){
+					$.post("http://localhost/g2/JQwork/php/login.php",{
+						"txt": $("#txt").val(),
+						"password": $("#password").val()
+					},function(data){
+						if(data){
+							if($(".auto").prop("checked")){
+								$.cookie('user',data,{expires: 7, path: '/'});
+							}else{
+								$.cookie('user',data,{path: '/'});
+							}
+							var data=JSON.parse(data);
+							location.href="../index.html";
+							//console.log(data.username);
+						}else{
+							$("#password").parent().find(".focus_err").css("display","block");
+						}
+					})
+				});
+			})
+		</script>
 	</head>
 	<body>
+		<!--header-->
+		<header>
+			<div>
+				<h1 id="logo">
+					<a href="../index.html"></a>
+				</h1>
+				<div class="header_r">
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+		</header>
+
+		
+		<!--main-->
+		<div class="main">
+			<div class="main_con">
+				<!--点击区域-->
+				<a href="../index.html" class="main_con_l"></a>
+				<!--注册表单-->
+				<div class="login">
+					<div class="login_top">
+	                    <div>还没有聚美帐号？<a href="signup.html">30秒注册</a></div>
+	                    <h1>登录聚美</h1>
+                	</div>
+                	<form id="lgform" >
+                		<div>
+                			<input type="text" name="txt" id="txt" placeholder="已验证手机/邮箱/用户名" />
+                			<div class="focus_text"><i></i>请输入登录名，登录名可能是您的手机号、邮箱或用户名</div>
+                			
+                		</div>
+                		<div>
+                			<input type="password" name="password" id="password" placeholder="密码" />
+                			<div class="focus_text"><i></i>请输入您的密码，您的密码可能为字母、数字或符号的组合</div>
+                			<div class="focus_err"><i></i>为了您的账号安全，密码长度只能在 6-16 个字符之间</div>
+                		</div>
+                		<div>
+                			滑动验证不会写
+                		</div>
+                		<div id="auto">
+                			<div><input type="checkbox" class="auto" checked/>自动登录</div>
+                			
+                			<a href="javascript:;">忘记密码？</a>
+                		</div>
+                		<div class="las">
+                			<input type="button" name="submit" id="submit" value="同意协议并注册" />
+                			
+                			<p class="xy">
+                            	你也可以使用以下帐号登录
+                       		</p>
+                       		<p class="alist">
+		                        <a href="javascript:;" class="a1" title="QQ"></a>
+		                        <a href="javascript:;" class="a2" title="支付宝"></a>
+		                        <a href="javascript:;" class="a3" title="新浪微博"></a>
+		                        <a href="javascript:;" class="a4" title="360"></a>
+		                        <a href="javascript:;" class="a5" title="百度"></a>
+		                        <span>更多<i class=""></i></span>
+		                     
+		                    </p>
+		                    <p class="icon-p">
+		                        <a href="javascript:;" class="a6" title="微信"></a>
+		                        <a href="javascript:;" class="a7" title="人人"></a>
+		                        <a href="javascript:;" class="a8" title="蘑菇街"></a>
+		                        <a href="javascript:;" class="a9" title="团800"></a>
+		                    </p>
+		                    
+                		</div>
+                	</form>
+				</div>
+			</div>
+		</div>
+		<!--清除浮动-->
+		<div class="clear"></div>
+	
+		<!--footer-->
+		<footer>
+			<div class="foot_main">
+				<p>
+				    Copyright © 2010-2015 北京创锐文化传媒有限公司 Jumei.com 保留一切权利。客服热线：400-123-8888 
+				    <br> 京公网安备 11010102001226 号 |
+					<a href="javascript:;">京ICP证111033号</a> | 食品流通许可证 SP1101051110165515（1-1） |
+					<a href="javascript:;">营业执照</a>
+				</p>
+				<p>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+					<a href="javascript:;"></a>
+				</p>
+			</div>
+		</footer>
 	</body>
 </html>
