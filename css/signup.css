@@ -87,10 +87,10 @@ footer .foot_main p:last-child a:nth-child(5){
 /*main*/
 .main_con{
 	position: relative;
-	margin-top: 120px;
     margin-bottom: 70px;
     height: 460px;
     margin: 100px auto;
+    margin-top: 160px;
     width: 965px;
     background: url('https://secure5.jmstatic.com/static_passport/dist/20170419/images/account/login_sign/signPic.jpg') no-repeat top center;
 }
@@ -160,6 +160,9 @@ footer .foot_main p:last-child a:nth-child(5){
     position: absolute;
     display: none;
 }
+.focus_text i{
+	display: none;
+}
 #lgform>div>i{
 	display: none;
 }
@@ -178,7 +181,15 @@ footer .foot_main p:last-child a:nth-child(5){
 	left: 20px;
 	display: none;
 }
-#lgform .focus_err i{
+#lgform .focus_repeatr{
+	position: absolute;
+	left: 20px;
+	display: none;
+}
+#lgform .focus_repeatr a{
+	color: red;
+}
+#lgform div div i{
 	margin-top: -10px;
     height: 20px;
     width: 20px;
@@ -186,4 +197,42 @@ footer .foot_main p:last-child a:nth-child(5){
     position: absolute;
     left: -20px;
     top: 50%;
+}
+.pw_strong{
+	display: none;
+}
+.pw_strong div{
+	margin-top: 4px;
+	float: left;
+    border-right: 1px solid #fff;
+    width: 100px;
+    line-height: 20px;
+    height: 20px;
+    text-align: center;
+    color: #fff;
+    background: #D0CECC;
+}
+.pw_strong .on{
+	background: orange;
+}
+
+
+#lgform #submit{
+    font-family: inherit;
+    background: #F8296D;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0 30px;
+    height: 40px;
+    color: #fff;
+    border: 0;
+}
+.xy{
+	margin: 10px 0;
+}
+.xy a{
+	color: #ed145b;
 }

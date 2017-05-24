@@ -35,21 +35,34 @@
 	                    <div>已有帐号<a href="login.html">在此登录</a></div>
 	                    <h1>用户注册</h1>
                 	</div>
-                	<form id="lgform" method="post">
+                	<form id="lgform" >
                 		<div>
-                			<input type="text" name="username" id="username" placeholder="手机号1[34578]" />
-                			<div class="focus_text">请输入11位手机号码</div>
+                			<input type="text" name="tel" id="tel" placeholder="手机号1[34578]" />
+                			<div class="focus_text"><i></i>请输入11位手机号码</div>
                 			<div class="focus_err"><i></i>您输入的手机号码格式有误，需为 11 位数字格式</div>
                 			<i></i>
+                			<div class="focus_repeatr"><i></i>该手机号已存在，如果您是该用户，请立刻<a href="login.html">登录</a></div>
                 		</div>
                 		<div>
-                			
+                			<input type="password" name="password" id="password" placeholder="密码" />
+                			<div class="focus_text"><i></i>6-16个字符，建议使用字母加数字或符号组合</div>
+                			<div class="focus_err"><i></i>为了您的账号安全，密码长度只能在 6-16 个字符之间</div>
+                			<div class="pw_strong">
+                				<div>弱</div>
+                				<div>中</div>
+                				<div>强</div>
+                			</div>
                 		</div>
                 		<div>
-                			
+                			<input type="password" name="rpas" id="rpas" placeholder="重复密码" />
+                			<div class="focus_text"><i></i>请再次输入密码</div>
+                			<div class="focus_err"><i></i>两次密码输入不一致，请重新输入</div>
                 		</div>
                 		<div>
-                			
+                			<input type="button" name="submit" id="submit" value="同意协议并注册" />
+                			<p class="xy">
+                            <a href="javascript:;" >《聚美优品用户协议》</a>
+                       		</p>
                 		</div>
                 	</form>
 				</div>
