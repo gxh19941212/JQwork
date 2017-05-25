@@ -3,16 +3,132 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("header").load("html/header.html");
+				$("footer").load("html/footer.html");
+				//促销
+				var data1 = {
+					"src":["186","198","202","206","208","210"]
+				},
+				data2 ={
+					"src":["292","296","298","300","304","314"],
+				},
+				html1 = template("test",data1),
+				html2 = template("test",data2);
+				$(".top_box").eq(0).html(html1);
+				$(".top_box").eq(1).html(html2);
+				$(".top_list li").click(function(){
+					$(".top_list li").removeClass("current");
+					$(this).addClass("current");
+					$(".top_cent div").css("display","none");
+					$(".top_cent div").eq($(this).index()).css("display","block");
+					
+				});
+				
+				//每日必看
+				$.post("http://localhost/g2/JQwork/php/daysee.php",function(data){
+					var daysdata={"data":JSON.parse(data)},
+					html3 = template("days",daysdata);
+					console.log(html3)
+					$(".seebox").html(html3);
+				})
+				
+				$(".seebox").children("div").hover(function(){
+					$(".global_tip").css("display","block");
+				},function(){
+					$(".global_tip").css("display","none");
+				});
+				
+			})
+		</script>
+		
+		<script id="test" type="text/html">
+			{{each src as value}}
+				<a href="javascript:;"><img src="imgs/135{{value}}_535_212_002-web.jpg"/></a>
+			{{/each}}
+		</script>
+		<script id="days" type="text/html">
+			{{each data as value}}
+			<div>
+					<a href="" class="seebox_bg">
+						<img src="{{value.imgsrc}}"/>
+						<span></span>
+					</a>
+					<a href="javascript:;" class="global_tip">
+						<span>海外直采</span><span>海外价格</span><span>闪电发货</span>
+					</a>
+					<div class="deals_tags">
+						<span class="tags_list"></span>
+					</div>
+					
+					
+					<div class="seebox_con">
+						<div class="have_time">
+							<span class="end_time">																		
+							</span>
+						</div>
+						<a href="javascript:;" class="short_title">{{value.cont}}</a>
+						<div class="product_price">
+							<div class="goto_cart_wrap">
+								<a class="goto_btn" href="javascript:;">加入购物车</a>
+							</div>
+							{{if value.discount==null}}
+								<!--{{value.discount=value.price}}-->
+								<!--{{value.price=null}}-->
+							{{/if}}
+							<span class="now_price"><em>¥</em>{{value.discount}}</span>
+							<div class="price_wrap">
+								<div class="icon_wrap">
+								</div>
+								<span class="pass_price"><del>{{value.price}}</del></span> 
+							</div>
+					
+						</div>
+						<div class="global_sure_tag">
+							<span class="g_tag"><img src="imgs/029_big.jpg"></span>
+							<span class="wish_like fr"><em>{{value.number}}</em>人已经购买</span>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+		</script>
 	</head>
 	<body>
 		<header></header>
+		<!--banner-->
+		<div class="banner">
+			<a href="javascript:;"></a>
+		</div>
+		
+		<!--今日疯抢，明日预告-->
+		<div class="main_top">
+			<ul class="top_list clearfix">
+				<li class="current" data-index="0">今日疯抢</li>
+				<li data-index="1">明日预告</li>
+		    </ul>
+		    <div class="top_cent cent">
+		    	<div class="top_box"></div>
+		    	<div class="top_box"></div>
+		    </div>
+		</div>
+		
+		
+		<!--奇怪的中间图-->
+		<div id="cent_img"></div>
+		
+		<!--每日必看-->
+		<div class="day_see cent">
+			<h2 id="daysee"></h2>
+			<div class="seebox">
+				
+			</div>
+		</div>
 		<footer></footer>
-		<script type="text/javascript">
-		$(function(){
-			$("header").load("header.html");
-			$("footer").load("footer.html");
-		})
-		</script>
 	</body>
 </html>
