@@ -6,47 +6,12 @@
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/right.css"/>
 		<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(function(){
-				$("header").load("html/header.html");
-				$("footer").load("html/footer.html");
-				//促销
-				var data1 = {
-					"src":["186","198","202","206","208","210"]
-				},
-				data2 ={
-					"src":["292","296","298","300","304","314"],
-				},
-				html1 = template("test",data1),
-				html2 = template("test",data2);
-				$(".top_box").eq(0).html(html1);
-				$(".top_box").eq(1).html(html2);
-				$(".top_list li").click(function(){
-					$(".top_list li").removeClass("current");
-					$(this).addClass("current");
-					$(".top_cent div").css("display","none");
-					$(".top_cent div").eq($(this).index()).css("display","block");
-					
-				});
-				
-				//每日必看
-				$.post("http://localhost/g2/JQwork/php/daysee.php",function(data){
-					var daysdata={"data":JSON.parse(data)},
-					html3 = template("days",daysdata);
-					console.log(html3)
-					$(".seebox").html(html3);
-				})
-				
-				$(".seebox").children("div").hover(function(){
-					$(".global_tip").css("display","block");
-				},function(){
-					$(".global_tip").css("display","none");
-				});
-				
-			})
-		</script>
+		<script type="text/javascript" src="js/endtimer.js"></script>
+		<script type="text/javascript" src="js/search.js"></script>
 		
 		<script id="test" type="text/html">
 			{{each src as value}}
@@ -70,7 +35,7 @@
 					
 					<div class="seebox_con">
 						<div class="have_time">
-							<span class="end_time">																		
+							<span class="end_time">																	
 							</span>
 						</div>
 						<a href="javascript:;" class="short_title">{{value.cont}}</a>
@@ -98,9 +63,55 @@
 				</div>
 				{{/each}}
 		</script>
+	
+		<script id="daynew" type="text/html">
+			<li class="newdeal_box" pos="{{id}}" data-hashid="d170526p3404674t1">
+						<div class="img_box">
+							<a class="img_box_href" href="javascript:;">
+								<img src="{{imgsrc}}" class="img_w1000 all_cart_img">
+								<div class="commit_new" style="display: none;">
+									<div class="commit_new_box">新品上线，赶快来试试吧！</div>
+								</div>
+							</a>
+							<div class="deals_tags">
+								{{if xinpin==1}}
+								<span class="tags_list tags_xinpin"></span>
+								{{/if}}
+							</div>
+							<div class="add_cart_box all_cart_wrap" style="display: none;">
+								<a href="javascript:;" class="add_cart all_cart">加入购物车</a>
+							</div>
+						</div>
+						<a target="_blank" href="http://item.jumei.com/d170526p3404674t1.html?from=index_hotdeals3_pos001_d1_new_onsale">
+							<div class="today_new_detail">
+								<p class="title">
+									{{if official==1}}
+									<span class="pink">【官方授权】</span>
+									{{/if}}
+									{{cont}}</p>
+								<div class="intro_box">
+									<div class="price_box"><em>¥</em><span class="pnum">{{discount}}</span><span class="mnum">¥{{price}}</span></div>
+									<div class="numtimer_box">
+										{{if endtime!==null}}
+										<div class="time_box" diff="66492">
+											<!---->
+										</div>
+										{{/if}}
+										<div class="num_box">
+											{{if number!=null}}
+											销量: <span class="buy_num">{{number}}</span> |
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+		</script>
+	
 	</head>
 	<body>
-		<header></header>
+		<header id="header_top"></header>
 		<!--banner-->
 		<div class="banner">
 			<a href="javascript:;"></a>
@@ -123,12 +134,99 @@
 		<div id="cent_img"></div>
 		
 		<!--每日必看-->
-		<div class="day_see cent">
+		<div class="day_see cent" id="day_see">
 			<h2 id="daysee"></h2>
 			<div class="seebox">
 				
 			</div>
 		</div>
+		
+		<!--今日上新-->
+		<div class="cent today_new_deal" id="today_new_deal">
+			<div class="today_deal_tit">
+				<h2 class="floor_head" id="today_deals">今日上新</h2>
+				<p class="today_deals_tip">每日十点上新</p>
+			</div>
+			<div class="today_new_productlist">
+				<ul class="today_new_ul clearfix" id="today_new_ul">
+					
+				</ul>
+			</div>
+		</div>
+		
+		<!--品牌团-->
+		<div class="cent" id="brands_head">
+		<!--美妆品牌团-->
+			<div class="cosmetics-floor brands-floor" id="cosmetics-floor">
+				<h2 class="floor_head"><a href="http://beauty.jumei.com/?from=newhone_beauty" target="_blank" class="floor-view-more">查看更多&gt;&gt;</a></h2>
+				<div class="bf-content clearfix">
+					<div class="fl">
+						<a href="http://beauty.jumei.com/?from=all_null_index_floor_cosmetics_chanel&amp;lo=3220&amp;mat=21619" target="_blank"><img original="http://p0.jmstatic.com/banner/3220/21619_258_425_001-web.jpg?1468206203" src="imgs/21619_258_425_001-web.jpg"></a>
+					</div>
+					<div class="fr">
+						<ul class="bf-ul-content">
+							<li>
+								<a href="http://hd.jumei.com/act/ppt_marubi_170525.html?from=all_null_index_floor_cosmetics_activity&amp;lo=3221&amp;mat=135874" target="_blank">
+									<img original="http://p0.jmstatic.com/banner/3221/135874_380_205_001-web.jpg?1495701763" width="380" height="205" src="http://p0.jmstatic.com/banner/3221/135874_380_205_001-web.jpg?1495701763">
+									<div class="bf-item-info">
+										<p class="tit">丸美品牌团</p>
+										<p class="subtit">傲娇美肌惹人爱</p>
+										<p class="sale">全场满<em>200</em>减<em>50</em></p>
+										<p class="time_box"></p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="http://hd.jumei.com/act/ppt_hanajirushi_170525.html?from=all_null_index_floor_cosmetics_activity&amp;lo=3221&amp;mat=135872" target="_blank">
+									<img original="http://p0.jmstatic.com/banner/3221/135872_380_205_002-web.jpg?1495701655" width="380" height="205" src="http://p0.jmstatic.com/banner/3221/135872_380_205_002-web.jpg?1495701655">
+									<div class="bf-item-info">
+										<p class="tit">花印品牌团</p>
+										<p class="subtit">“粽”享素颜主旋律</p>
+										<p class="sale">满<em>199</em>减<em>100</em> 送<em>197</em></p>
+										<p class="time_box"></p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="http://hd.jumei.com/act/ppt_hanajirushi_170525.html?from=all_null_index_floor_cosmetics_activity&amp;lo=3221&amp;mat=135870" target="_blank">
+									<img original="http://p0.jmstatic.com/banner/3221/135870_380_205_002-web.jpg?1495701650" width="380" height="205" src="http://p0.jmstatic.com/banner/3221/135870_380_205_002-web.jpg?1495701650">
+									<div class="bf-item-info">
+										<p class="tit">花印品牌团</p>
+										<p class="subtit">“粽”享素颜主旋律</p>
+										<p class="sale">满<em>199</em>减<em>100</em> 送<em>197</em></p>
+										<p class="time_box"></p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="http://hd.jumei.com/act/ppt_ifiona_170526.html?from=all_null_index_floor_cosmetics_activity&amp;lo=3221&amp;mat=135868" target="_blank">
+									<img original="http://p0.jmstatic.com/banner/3221/135868_380_205_002-web.jpg?1495701558" width="380" height="205" src="http://p0.jmstatic.com/banner/3221/135868_380_205_002-web.jpg?1495701558">
+									<div class="bf-item-info">
+										<p class="tit">菲奥娜品牌团</p>
+										<p class="subtit">菲奥娜妆嫩宝典</p>
+										<p class="sale">满<em>109</em>减<em>30</em>不封顶</p>
+										<p class="time_box"></p>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+    	</div>
+		
 		<footer></footer>
+		
+		
+		<!--左侧楼层坐标-->
+		<div class="home_left">
+			<div class="jumei_idx">聚美<br>首页</div>
+			<a href="#day_see">每日必看</a>
+			<a href="#today_new_deal">上单新品</a>
+			<a href="#brands_head">品牌团</a>
+		</div>
+		
+		
+		<div class="add-right"></div>
 	</body>
 </html>

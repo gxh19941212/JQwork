@@ -1,0 +1,72 @@
+<div class="main-right">
+	<ul class="right-top">
+		<li>
+			<a href="javascript:;"><em></em></a>
+			
+		</li>
+		<li class="gw">
+			<a href="javascript:;">
+				<b></b>
+				<span class="text">购物车</span>
+				<span class="cart_num">0</span>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;"><em></em></a>
+			<div><i></i></div>
+		</li>
+		<li>
+			<a href="javascript:;"><em></em></a>
+			<div><i></i></div>
+		</li>
+		<li>
+			<a href="javascript:;"><em></em></a>
+			<div><i></i></div>
+		</li>
+	</ul>
+	
+	<ul class="right-bottom">
+		<li>
+			<a href="javascript:;"><em></em></a>
+			<div><i></i></div>
+		</li>
+		<li>
+			<a href="javascript:;"><em></em></a>
+			<div><i></i></div>
+		</li>
+		<li>
+			<a href="#header_top"><em></em></a>
+			<div><i></i></div>
+		</li>
+	</ul>
+	<section></section>
+</div>
+<script type="text/javascript">
+	$(".main-right").on("mouseenter","a",function(){
+		$(this).parent().find("div").css("display","block").stop(true).animate({"left":"-100px","opacity":1});
+	})
+	$(".main-right").on("mouseleave","a",function(){
+		$(this).parent().find("div").css("display","none").stop(true).animate({"left":"-150px","opacity":0});
+	})
+	
+	$(".right-top").on("click","li",function(){
+		if($(this).index()==1||$(this).index()==4){
+			$(".main-right").find("section").css("display","block").stop(true).animate({"left":"-287px"})
+			$(".main-right li a").removeClass("on");
+			if($(this).index()==1){
+				$(".main-right b").addClass("hover")
+			}else{
+				$(".main-right b").removeClass("hover");
+			}
+			
+			$(this).find("a").addClass("on");
+		}
+	})
+	$(":not(.add-right,.add-right *,body,html)").click(function(){
+		$(".main-right").find("section").stop(true).animate({"left":"0px"},function(){
+			$(".main-right").find("section").css("display","none")
+			$(".main-right li a").removeClass("on");
+			$(".main-right b").removeClass("hover");
+		})
+	})
+</script>

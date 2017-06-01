@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/search.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/right.css"/>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/endtimer.js"></script>
+		<script type="text/javascript" src="../js/search.js"></script>
+	
+		<script type="text/html" id="lis">
+			<li class="ones">
+				<div>
+					<div class="w-pic">
+						<div class="wrap-top clearfix">
+							<div class="xinpin{{xinpin}}"></div>
+						</div>
+						<div class="wrap-pic">
+							<a href="">
+								<img src="../{{imgsrc}}" alt="" />
+							</a>
+						</div>
+					</div>
+			
+					<div class="sp-name">
+						<a href="">{{name}}</a>
+					</div>
+					<div class="sp-price">
+						<div class="list-price">
+							<label>¥</label>
+							<span>{{discount}}</span>
+							<del>¥{{price}}</del>
+							<div class="saleinfos">
+								<span title="一叶子满159送化妆棉">赠</span>
+								<span title="一叶子满199送发带">赠</span>
+								<span title="一叶子满199送洗浴海绵">赠</span>
+							</div>
+						</div>
+					</div>
+			
+					<div class="sp-number clearfix">
+						
+						<p>
+							{{if number!=0}}
+							<span>{{number}}</span>
+							{{/if}}
+							人已购买|</p>
+						<div class="sp-time"></div>
+					</div>
+			
+					<div class="sp-button">
+						<a href=""></a>
+						<a href=""></a>
+					</div>
+			
+					<p class="list-list">
+						<span>紧致</span>
+						<span>保湿</span>
+						<span>修护肌肤</span>
+						<span>滋润</span>
+						<span>补水</span>
+					</p>
+			
+				</div>
+			</li>
+		</script>
+	
+	</head>
+	<body>
+		<header id="header_top"></header>
+		
+		<div class="search-main cent">
+			<div class="main-head">
+				<p>
+					<a href="">化妆品首页</a>
+					<span>></span>
+				</p>
+				<em class="va"></em>
+				<form id="search">
+					<input type="text" name="" id="" value="" />
+					<input type="button" value=""/>
+					<span>在当前条件下搜索</span>
+				</form>
+			</div>
+			
+			<div class="search-list">
+				<div class="list-top">
+					<strong>在<span></span>中筛选 
+						<label>（多选模式，每个属性最多可同时选5个选项）</label>
+					</strong>
+				</div>
+				<div class="list-cont">
+					<div class="con">
+						<div class="cleft">功效:</div>
+					</div>
+					<div class="con">
+						<div class="cleft">价格:</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="splists">
+				<div class="splists-top">
+					<div class="px">排序:</div>
+					<ul>
+						<li class="sele"><a href="javascript:;">默认</a></li>
+						<li><a href="javascript:;">价格</a></li>
+						<li><a href="javascript:;">销量</a></li>
+						<li><a href="javascript:;">人气</a></li>
+						<li><a href="javascript:;">上架时间</a></li>
+						<li><a href="javascript:;">只看特卖</a></li>
+					</ul>
+					<div class="splists-top-right">
+						<span>共<em></em>件商品</span>
+						<span></span>
+						<span class="up">上一页</span>
+						<span class="dnow">下一页</span>
+					</div>
+				</div>
+				
+				<div class="splists-wrap">
+					<ul class="wrap-ul clearfix">
+						
+					</ul>
+					<div class="pagenav">
+						<nav>
+							<p class="up">上一页</p>
+							<p class="pages">
+							</p>
+							<p class="dnow">下一页</p>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+
+		<footer></footer>
+		<div class="add-right"></div>
+	</body>
+</html>
