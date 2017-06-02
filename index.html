@@ -9,9 +9,10 @@
 		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/right.css"/>
 		<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="js/endtimer.js"></script>
-		<script type="text/javascript" src="js/search.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
 		
 		<script id="test" type="text/html">
 			{{each src as value}}
@@ -20,9 +21,9 @@
 		</script>
 		<script id="days" type="text/html">
 			{{each data as value}}
-			<div>
-					<a href="" class="seebox_bg">
-						<img src="{{value.imgsrc}}"/>
+			<div class="oness" data-id="{{value.id}}" data-name="{{value.name}}" data-imgsrc="{{value.imgsrc}}" data-jg="{{value.price}}" data-dz="{{value.discount}}">
+					<a href="javascript:;" class="seebox_bg">
+						<img src="{{value.imgsrc}}"/> 
 						<span></span>
 					</a>
 					<a href="javascript:;" class="global_tip">

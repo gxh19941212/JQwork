@@ -58,10 +58,11 @@ header {
             border: 1px solid #ddd;
             padding: 8px 0;
             width: 110px;
-            height: 200px;
             border-top: 0;
             box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
             display: none; }
+            header .header-top .header-top-cent .header-top-right li nav p {
+              padding-left: 20px; }
           header .header-top .header-top-cent .header-top-right li:nth-of-type(4) {
             padding-right: 18px;
             padding-left: 10px;

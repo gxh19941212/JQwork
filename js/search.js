@@ -51,7 +51,8 @@ $(function(){
 			$(".splists-top-right span:eq(0) em").html(newdata.length);
 			$(".xinpin").css("background-position-y","-68px");
 			$(".xinpin1").css("background-position-y","0");
-			setInterval("endTimer(2017,6,4,11,11,11,dayend)",1000);
+			
+			setInterval("endTimer(2017,6,14,11,11,11,dayend)",1000);
 
 			$(".pagenav nav").on("click","a",function(){
 				newpos=($(this).attr("page"))*20;
@@ -76,9 +77,7 @@ $(function(){
 			
 			if($(window).scrollTop()>=a){
 				$(".splists-top").addClass("fixed");
-				console.log(1)
 			}else{
-				console.log(3)
 				$(".splists-top").removeClass("fixed");
 			}
 		})
@@ -107,7 +106,6 @@ function page(data,page){
 			ssr+=`<a href="javascript:;" page="${j}">${j}</a>`;
 		}
 	}
-	console.log(data.length,max)
 	if(Idenx>=8){
 		$(".pagenav nav .pages").html(ssr+`<b>...</b>
 		<a href="javascript:;" page="${max-1}">${max-1}</a>

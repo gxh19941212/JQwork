@@ -1,0 +1,176 @@
+body {
+  background: white; }
+
+header {
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1); }
+
+.cent {
+  width: 960px;
+  overflow: hidden;
+  color: #999999; }
+  .cent p {
+    height: 30px;
+    line-height: 30px;
+    text-align: right; }
+    .cent p a {
+      color: #999999; }
+      .cent p a:nth-of-type(1) {
+        color: #ed145b; }
+      .cent p a:hover {
+        color: #ed145b;
+        text-decoration: none; }
+  .cent .top {
+    padding-bottom: 15px;
+    overflow: hidden; }
+    .cent .top h1 {
+      float: left; }
+    .cent .top .top-right {
+      float: right;
+      width: 377px;
+      height: 48px;
+      background: url(../imgs/order_path.png) no-repeat -2px -2px; }
+
+.pics {
+  height: 40px; }
+
+.main {
+  border: 1px solid #eee;
+  margin-bottom: 10px; }
+  .main .main-top {
+    border-bottom: 1px solid #eee;
+    background: #fafafa;
+    color: #000; }
+    .main .main-top span {
+      font-weight: 900; }
+  .main .main-cont nav {
+    border-bottom: 1px solid #eee; }
+  .main .main-bot {
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+    text-align: right;
+    background: #fafafa;
+    padding-right: 20px; }
+    .main .main-bot span {
+      color: #ed145b;
+      font-weight: 700;
+      font-size: 14px; }
+  .main .list > div {
+    min-height: 34px;
+    line-height: 34px;
+    float: left; }
+  .main nav > div {
+    padding-top: 20px; }
+  .main nav .cart3 {
+    padding-left: 20px;
+    box-sizing: border-box; }
+  .main nav.true {
+    background: white; }
+  .main nav {
+    background: #eee; }
+  .main .list {
+    text-align: center;
+    overflow: hidden; }
+    .main .list .cart1 {
+      width: 56%;
+      text-align: left;
+      padding-top: 0; }
+      .main .list .cart1 div {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 15px 0; }
+        .main .list .cart1 div img {
+          height: 60px;
+          width: 60px;
+          margin-right: 10px; }
+        .main .list .cart1 div a {
+          vertical-align: top;
+          color: black; }
+          .main .list .cart1 div a:hover {
+            color: #ed145b; }
+    .main .list .cart2 {
+      width: 12%; }
+      .main .list .cart2 p, .main .list .cart2 del {
+        text-align: center;
+        display: block;
+        height: 20px;
+        line-height: 20px; }
+      .main .list .cart2 p {
+        color: black;
+        font-weight: 800; }
+    .main .list .cart3 {
+      width: 12%; }
+      .main .list .cart3 span, .main .list .cart3 input {
+        float: left;
+        height: 20px;
+        line-height: 20px;
+        text-align: center; }
+      .main .list .cart3 input {
+        width: 30px;
+        height: 20px;
+        border: 0;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #e0e0e0; }
+      .main .list .cart3 span {
+        width: 20px;
+        border: 1px solid #e0e0e0;
+        font-size: 16px;
+        cursor: pointer; }
+    .main .list .cart4 {
+      width: 10%; }
+      .main .list .cart4 p {
+        height: 20px;
+        line-height: 20px;
+        color: black;
+        text-align: center; }
+        .main .list .cart4 p:nth-child(1) {
+          color: #ed145b;
+          font-weight: 700; }
+      .main .list .cart4 del {
+        text-decoration: none; }
+    .main .list .cart5 {
+      width: 10%; }
+      .main .list .cart5 a {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        background: url(../imgs/icons.png) no-repeat -7px -27px; }
+
+.bottom {
+  height: 48px;
+  line-height: 48px;
+  border: 1px solid #eee;
+  background: #fafafa; }
+  .bottom .cot-left a {
+    color: black;
+    margin-right: 5px; }
+    .bottom .cot-left a:nth-of-type(1) {
+      margin-left: 20px; }
+    .bottom .cot-left a:hover {
+      color: #ed145b; }
+  .bottom .bot-right {
+    color: black;
+    font-size: 14px; }
+    .bottom .bot-right em {
+      font-size: 16px;
+      color: #ed145b;
+      font-weight: 900; }
+    .bottom .bot-right a {
+      color: white;
+      font-size: 16px;
+      background: #ed145b;
+      display: inline-block;
+      height: 100%;
+      width: 150px;
+      text-align: center;
+      margin-left: 10px; }
+      .bottom .bot-right a:hover {
+        text-decoration: none; }
+
+.zong, .ge {
+  margin: 0 5px;
+  vertical-align: middle; }
+
+/*# sourceMappingURL=cart.css.map */

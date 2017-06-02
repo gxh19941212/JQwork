@@ -1,3 +1,6 @@
+body{
+	background: white;
+}
 /*header*/
 header{
 	min-width: 960px;

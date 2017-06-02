@@ -124,6 +124,13 @@
     display: none;
     overflow: hidden;
     z-index: 1; }
+    .main-right section div {
+      border-bottom: 1px solid #939292;
+      text-align: center; }
+      .main-right section div p {
+        height: 24px;
+        line-height: 24px;
+        font-size: 16px; }
 
 .add-right .main-right li .on {
   background: #ed145b; }

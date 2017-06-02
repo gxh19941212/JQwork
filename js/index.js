@@ -29,16 +29,69 @@
 					html3 = template("days",daysdata);
 //					console.log(html3)
 					$(".seebox").html(html3);
+					$(".seebox a:not('.goto_btn')").each(function(i){
+						$(".seebox a:not('.goto_btn')").eq(i).click(function(){
+							var ID=$(this).parents(".oness").attr("data-id"),
+							txt =encodeURI("我的天"),
+							cont = encodeURI($(this).parents(".oness").find(".short_title").html());
+							location.href="html/details.html?spid="+ID+"&cont="+cont+"&txt="+txt;
+						})
+					})
+					
+					$(".seebox .goto_btn").each(function(i){
+						$(".seebox .goto_btn").eq(i).click(function(){
+							var ID=$(this).parents(".oness").attr("data-id"),
+							imgsrc ="../"+$(this).parents(".oness").attr("data-imgsrc"),
+							jg=$(this).parents(".oness").attr("data-jg"),
+							dz=$(this).parents(".oness").attr("data-dz"),
+							numbers=1,
+							name = $(this).parents(".oness").attr("data-name"),
+							ssr,
+							bl=false,index;
+							if($.cookie('sp')){
+								var data =JSON.parse($.cookie('sp'));
+								if(data==null){
+									data={"sp":[]};
+								}
+								data.sp.forEach(function(v,k){
+									if(ID==v.id){
+										numbers=v.number+1;
+										bl=true;
+										index=k;
+										
+									}
+								})
+								ssr={"id":ID,"imgsrc":imgsrc,"name":name,"jg":jg,"dz":dz,"number":numbers};
+								if(bl){
+									data.sp[index]=ssr;
+								}else{
+									data.sp.push(ssr);
+								}
+								data=JSON.stringify(data);
+								$.cookie('sp',data,{expires: 7, path: '/'});
+							}else{
+								ssr={"sp":[{"id":ID,"imgsrc":imgsrc,"name":name,"jg":jg,"dz":dz,"number":numbers}]};
+								data=JSON.stringify(ssr);
+								$.cookie('sp',data,{expires: 7, path: '/'});
+							}
+							
+							var io=0;
+							JSON.parse($.cookie('sp')).sp.forEach(function(v){io+=v.number});
+							$(".cart_num").html(io)
+						})
+					})
+					
+					$(".seebox").children("div").hover(function(){
+					$(".global_tip").css("display","block");
+						},function(){
+							$(".global_tip").css("display","none");
+						});
+					
 				})
 				
-				setInterval("endTimer(2017,6,4,11,11,11,dayend)",1000);
+				setInterval("endTimer(2017,6,14,11,11,11,dayend)",1000);
 				
 				
-				$(".seebox").children("div").hover(function(){
-					$(".global_tip").css("display","block");
-				},function(){
-					$(".global_tip").css("display","none");
-				});
 				
 				
 				//今日上新
@@ -81,16 +134,12 @@
 								//console.log(newdata[i]);
 								$('#today_new_ul').append(a);
 							}
-							console.log(newdata)
-
-					
-					
 					
 					$(window).scroll(function(){
 		
 						if($('#today_new_ul li:last-child').offset().top-$(window).scrollTop()<=600){
 							//console.log(newdata);
-							if(newpos+12<=newdata.length){
+							if(newpos+24<=newdata.length){
 								newpos=newpos+12;
 								for(var i=newpos;i<newpos+12;i++){
 									var a= template("daynew",newdata[i]);
@@ -100,7 +149,6 @@
 							}
 							
 						}
-						
 						
 						//滑动切换左侧
 						if($(window).scrollTop()>=$("#day_see").offset().top){

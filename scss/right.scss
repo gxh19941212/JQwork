@@ -171,6 +171,16 @@
         display: none;
         overflow: hidden;
         z-index: 1;
+        
+        div{
+            border-bottom: 1px solid #939292;
+            text-align: center;
+            p{
+                height: 24px;
+                line-height: 24px;
+                font-size: 16px;
+            }
+        }
     }
 }
 

@@ -9,6 +9,19 @@
 				<b></b>
 				<span class="text">购物车</span>
 				<span class="cart_num">0</span>
+				<script type="text/javascript">
+				var io=0;
+				JSON.parse($.cookie('sp')).sp.forEach(function(v){io+=v.number});
+				$(".cart_num").html(io);
+				$(".right-top .gw").click(function(){
+					var Html='';
+					JSON.parse($.cookie('sp')).sp.forEach(function(v){
+						Html+="<div><p>商品名:"+v.name+"</p><p>单价:"+v.jg+"</p><p>数量:"+v.number+"</p></div>"
+					});
+					$(".main-right section").html(Html);
+				})
+				
+				</script>
 			</a>
 		</li>
 		<li>

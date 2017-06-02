@@ -5,6 +5,19 @@
             <li>欢迎来到聚美！</li>
             <li><a href="login.html">请登录</a></li>
             <li><a href="signup.html">快速注册</a></li>
+            <script type="text/javascript">
+            	 $(function(){
+					if($(".banner").length>0){
+						$(".header-top-left li:eq(1) a").attr("href","html/login.html");
+						$(".header-top-left li:eq(2) a").attr("href","html/signup.html");
+					}
+					if($.cookie("user")){
+						
+						$(".header-top-left").html('<li>欢迎来到聚美！</li> <li><a href="javascript:;">'+JSON.parse($.cookie("user")).username+'</a></li>')
+					}
+				})
+            </script>
+           
         </ul>		
 		
 		<ul class="header-top-right">
@@ -12,11 +25,24 @@
             <li><a href="">订单查询</a></li>
             <li><a href=""><i></i>收藏的商品</a></li>
             <li><a href="">我的聚美 <b></b></a>
-            	<nav></nav>
+            	<nav>
+            		<p>我的聚美</p>
+            		<p>我的聚美</p>
+            		<p>我的聚美</p>
+            		<p>我的聚美</p>
+            		<p>我的聚美</p>
+            		<p>我的聚美</p>
+            	</nav>
             </li>
             <li><a href=""><i></i>手机聚美</a></li>
             <li><a href="">更多<b></b></a>
-            	<nav></nav>
+            	<nav>
+            		<p>我的聚美</p>
+            		<p>我的聚美</p>
+            		<p>我的聚美</p>
+            		<p>我的聚美</p>
+            		<p>我的聚美</p>
+            	</nav>
             </li>
         </ul>
 		
@@ -34,6 +60,19 @@
 		<form action="javascript:;" class="clearfix">
 			<input type="text" name="search" id="search" value="" />
 			<input type="submit" value="搜索"/>
+			<script type="text/javascript">
+				$(function(){
+				if($(".banner").length>0){
+					$(".header-search input[type=submit]").click(function(){
+						location.href="html/search.html"
+					})
+				}else{
+					$(".header-search input[type=submit]").click(function(){
+						location.href="search.html"
+					})
+				}	
+				})
+			</script>
 		</form>
 		<ul class="hot_word">
             <li><a href="">保湿</a><b class="line"></b></li>
@@ -49,12 +88,13 @@
 	</div>
 	
 	<div class="header-cart">
-		<a href="">
+		<a href="cart.html">
 			<img src="../imgs/cart.gif" alt="" />
 			<script type="text/javascript">
 			$(function(){
 				if($(".banner").length>0){
 					$(".header-cart img").attr("src","imgs/cart.gif");
+					$(".header-cart>a").attr("href","html/cart.html")
 				}
 				
 			})

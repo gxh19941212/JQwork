@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="../js/template.js"></script>
+		<script type="text/javascript" src="../js/endtimer.js"></script>
+		<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="../js/cart.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="cent">
+				<p>
+					欢迎您,
+					<a href="javascript:;"></a>
+					<a href="javascript:;">[退出]</a> |
+					<a href="javascript:;">订单查询</a>
+				</p>
+				<div class="top">
+					<h1 id="logo">
+						<a href="">
+							<img src="../imgs/cart_logo.jpg" alt="" />
+						</a>
+					</h1>
+					<div class="top-right"></div>
+				</div>
+			</div>
+		</header>
+		<div class="pics cent"></div>
+		<div class="main cent">
+			<div class="main-top  list">
+				<div class="cart1"><input type="checkbox" class="zong" checked/><span>聚美优品发货</span></div>
+				<div class="cart2">聚美价（元）</div>
+				<div class="cart3">数量</div>
+				<div class="cart4">小计（元）</div>
+				<div class="cart5">删除</div>
+			</div>
+			<div class="main-cont">
+				<script type="text/html" id="gwc">
+					{{each sp as value}}
+					<nav class="list true" data-id="{{value.id}}">
+						<div class="cart1">
+							<input type="checkbox" class="ge" checked/>
+							<div>
+								<img src="{{value.imgsrc}}" alt="" />
+								<a href="javascript:;">{{value.name}}</a>
+							</div>
+						</div>
+						<div class="cart2">
+							{{if value.dz!=''}}
+								<p>{{value.dz}}</p>
+								<del>{{value.jg}}</del>
+							{{else}}
+								<p>{{value.jg}}</p>
+							{{/if}}
+						</div>
+						<div class="cart3">
+							<span>-</span>
+							<input type="text" name="number" id="number" value="{{value.number}}" />
+							<span>+</span>
+						</div>
+						<div class="cart4">
+							{{if value.dz!=''}}
+								<p>{{value.dz*value.number}}</p>
+								<del>省{{(value.jg-value.dz)*value.number}}</del>
+							{{else}}
+								<p>{{value.jg*value.number}}</p>
+							{{/if}}
+						</div>
+						<div class="cart5">
+							<a href="javascript:;"></a>
+						</div>
+					</nav>
+					{{/each}}
+				</script>
+			</div>
+			<div class="main-bot">商品金额：<span>¥547.00</span></div>
+		</div>
+		
+		<div class="bottom cent">
+			<div class="cot-left fl">
+				<input type="checkbox" class="zong" checked/>全选
+				<a href="../index.html" target="_blank">继续购物</a>|
+				<a href="javascript:;">清空选中商品</a>
+			</div>
+			<div class="bot-right fr">
+				<span>共<em>?</em>件商品</span>
+				<span>商品应付总额：<em>¥547.00</em></span>
+				<a href="javascript:;" class="jiessuan">去结算</a>
+			</div>
+		</div>
+		
+	</body>
+</html>
