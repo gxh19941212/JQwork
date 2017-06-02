@@ -1,0 +1,137 @@
+footer {
+  overflow: hidden;
+  border-top: 1px solid #ccc;
+  background: #fff;
+  position: relative;
+  bottom: -1px;
+  height: 738px; }
+  footer .footer-top {
+    padding: 30px 0 15px 0;
+    border-bottom: 1px solid #ccc; }
+    footer .footer-top a {
+      display: block;
+      float: left;
+      width: 160px;
+      height: 140px;
+      color: #999;
+      text-align: center;
+      font-size: 14px; }
+      footer .footer-top a:hover {
+        text-decoration: none;
+        color: #666; }
+      footer .footer-top a p {
+        font-weight: 900;
+        font-size: 16px;
+        color: #666; }
+      footer .footer-top a span {
+        display: block;
+        width: 63px;
+        height: 63px;
+        margin: 0 auto 20px;
+        background: url(../imgs/footer_0901.jpg) no-repeat; }
+      footer .footer-top a:nth-of-type(2) {
+        width: 130px; }
+      footer .footer-top a:nth-of-type(2) span {
+        background-position-x: -64px; }
+      footer .footer-top a:nth-of-type(3) span {
+        background-position-x: -128px; }
+      footer .footer-top a:nth-of-type(4) span {
+        background-position-x: -190px; }
+      footer .footer-top a:nth-of-type(5) span {
+        background-position-x: -253px; }
+      footer .footer-top a:nth-of-type(6) span {
+        background-position-x: -316px; }
+      footer .footer-top a:nth-of-type(7) span {
+        background-position-x: -379px; }
+      footer .footer-top a:nth-of-type(7) {
+        width: 134px; }
+  footer .footer-nav1 {
+    height: 165px;
+    padding-top: 30px; }
+    footer .footer-nav1 ul {
+      width: 156px;
+      height: 143px;
+      padding-left: 16px;
+      float: left;
+      zoom: 1;
+      overflow: hidden; }
+      footer .footer-nav1 ul .links {
+        color: #666;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        overflow: hidden; }
+      footer .footer-nav1 ul li {
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden; }
+        footer .footer-nav1 ul li a {
+          height: 22px;
+          line-height: 22px;
+          color: #666;
+          display: block;
+          transition: transform .4s linear; }
+          footer .footer-nav1 ul li a:hover {
+            color: #ea1d5d;
+            text-decoration: none;
+            transform: translateX(10px); }
+    footer .footer-nav1 .linkse {
+      width: 130px; }
+    footer .footer-nav1 .linksf, footer .footer-nav1 .linksg {
+      width: 83px;
+      text-align: center;
+      padding-left: 36px;
+      margin-top: 0;
+      height: 146px;
+      color: #666; }
+    footer .footer-nav1 .linksg .link_bottom_pic {
+      background: url(../imgs/jumei_weixin_footer.png) no-repeat 0 0; }
+    footer .footer-nav1 .link_bottom_pic {
+      width: 78px;
+      height: 78px;
+      display: inline-block;
+      overflow: hidden;
+      margin-left: 3px;
+      background: url(../imgs/header_corn_new_v2.png) 0 -423px no-repeat; }
+  footer .footer-us {
+    height: 95px;
+    background: url(../imgs/footer_dy.jpg) no-repeat top center; }
+  footer .footer-nav2 {
+    height: 48px;
+    line-height: 48px;
+    background: url(../imgs/footer_btm02_bg.jpg) repeat-x top center; }
+    footer .footer-nav2 a {
+      color: #fff;
+      padding-right: 12px;
+      height: 48px;
+      display: inline-block; }
+      footer .footer-nav2 a:hover {
+        text-decoration: none; }
+  footer .footer-bottom {
+    background: url(../imgs/newindex_footer_bg.png) repeat-x top center;
+    line-height: 23px;
+    padding-bottom: 80px;
+    color: #ccc; }
+    footer .footer-bottom p:nth-of-type(1) {
+      padding: 14px 0 18px; }
+      footer .footer-bottom p:nth-of-type(1) a {
+        color: #ccc; }
+        footer .footer-bottom p:nth-of-type(1) a:hover {
+          text-decoration: none; }
+    footer .footer-bottom p:nth-of-type(2) a {
+      width: 126px;
+      height: 50px;
+      overflow: hidden;
+      display: inline-block;
+      margin-right: 8px;
+      background: url(../imgs/footer_btm_icon.png) no-repeat; }
+      footer .footer-bottom p:nth-of-type(2) a:nth-of-type(2) {
+        background-position-x: -126px; }
+      footer .footer-bottom p:nth-of-type(2) a:nth-of-type(3) {
+        background-position-x: -252px; }
+      footer .footer-bottom p:nth-of-type(2) a:nth-of-type(4) {
+        background-position-x: -378px; }
+      footer .footer-bottom p:nth-of-type(2) a:nth-of-type(5) {
+        background-position-x: -504px; }
+
+/*# sourceMappingURL=footer.css.map */
